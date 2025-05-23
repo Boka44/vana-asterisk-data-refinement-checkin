@@ -17,14 +17,4 @@ const checkInSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('CheckIn', checkInSchema)
 
-
-// const checkInSchema = {
-//   "user_hash": "hashed_uuid",
-//   "is_pregnant": false,
-//   "timestamp": "ISO 8601 datetime",
-//   "mood": "good",
-//   "health_comment": "Feeling fine today", // could be risky to allow free text
-//   "doctor_visit": false,
-//   "medication_update": false,
-//   "diagnosis_update": false
-// }
+// https://blue-yummy-rooster-621.mypinata.cloud/ipfs/bafkreihrxjyot24fw6qnvi4twmcqyocg3ipeimt54gdd7aqrm5c4tacjoq
