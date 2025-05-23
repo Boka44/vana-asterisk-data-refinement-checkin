@@ -21,17 +21,17 @@ class Settings(BaseSettings):
     )
     
     SCHEMA_NAME: str = Field(
-        default="Google Drive Analytics",
+        default="Check In",
         description="Name of the schema"
     )
     
     SCHEMA_VERSION: str = Field(
-        default="0.0.1",
+        default="1.0.0",
         description="Version of the schema"
     )
     
     SCHEMA_DESCRIPTION: str = Field(
-        default="Schema for the Google Drive DLP, representing some basic analytics of the Google user",
+        default="Schema for the Check In DLP, representing a daily health check-in",
         description="Description of the schema"
     )
     
