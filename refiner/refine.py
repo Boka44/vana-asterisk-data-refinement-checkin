@@ -4,7 +4,7 @@ import os
 
 from refiner.models.offchain_schema import OffChainSchema
 from refiner.models.output import Output
-from refiner.transformer.checkin_transformer import CheckinTransformer
+from refiner.transformer.check_in_transformer import CheckInTransformer
 from refiner.config import settings
 from refiner.utils.encrypt import encrypt_file
 from refiner.utils.ipfs import upload_file_to_ipfs, upload_json_to_ipfs
@@ -27,7 +27,7 @@ class Refiner:
                     input_data = json.load(f)
 
                     # Transform account data
-                    transformer = CheckinTransformer(self.db_path)
+                    transformer = CheckInTransformer(self.db_path)
                     transformer.process(input_data)
                     logging.info(f"Transformed {input_filename}")
                     

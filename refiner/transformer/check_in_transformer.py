@@ -1,3 +1,4 @@
+import logging
 from typing import Dict, Any, List
 from refiner.transformer.base_transformer import DataTransformer
 from refiner.models.refined import Base, CheckInRefined
