@@ -17,11 +17,13 @@ def run() -> None:
 
     if not input_files_exist:
         raise FileNotFoundError(f"No input files found in {settings.INPUT_DIR}")
+    logging.info(f"Input files exist")
     extract_input()
-
+    logging.info(f"Extracted input files")
     refiner = Refiner()
+    logging.info(f"Initialized Refiner")
     output = refiner.transform()
-    
+    logging.info(f"Transformed input files")
     output_path = os.path.join(settings.OUTPUT_DIR, "output.json")
     with open(output_path, 'w') as f:
         json.dump(output.model_dump(), f, indent=2)    
@@ -39,7 +41,7 @@ def extract_input() -> None:
         # Check if file is actually JSON despite the extension
         try:
             with open(input_file, 'r') as f:
-                logging.info(f"Processing {input_filename}")
+                logging.info(f"Processing {input_filename} in extract_input")
                 json.load(f)  # Try to parse as JSON
                 if input_filename.lower().endswith('.zip'):
                     # It's a JSON file with wrong extension, rename it
