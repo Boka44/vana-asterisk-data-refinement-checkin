@@ -39,7 +39,7 @@ class Refiner:
                         dialect=settings.SCHEMA_DIALECT,
                         schema=transformer.get_schema()
                     )
-                    output.schema = schema
+                    output.schema_data = schema
                         
                     # Upload the schema to IPFS
                     schema_file = os.path.join(settings.OUTPUT_DIR, 'schema.json')
