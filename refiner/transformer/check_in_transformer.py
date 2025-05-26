@@ -19,6 +19,8 @@ class CheckInTransformer(DataTransformer):
         Returns:
             List of SQLAlchemy model instances
         """
+
+        logging.info(f"Transforming check-in data: {data}")
         # Validate data with Pydantic
         unrefined_check_in = CheckIn.model_validate(data)
         

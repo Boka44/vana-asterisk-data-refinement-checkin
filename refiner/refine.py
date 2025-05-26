@@ -4,7 +4,7 @@ import os
 
 from refiner.models.offchain_schema import OffChainSchema
 from refiner.models.output import Output
-from refiner.transformer.user_transformer import UserTransformer
+from refiner.transformer.checkin_transformer import CheckinTransformer
 from refiner.config import settings
 from refiner.utils.encrypt import encrypt_file
 from refiner.utils.ipfs import upload_file_to_ipfs, upload_json_to_ipfs
@@ -20,13 +20,14 @@ class Refiner:
 
         # Iterate through files and transform data
         for input_filename in os.listdir(settings.INPUT_DIR):
+            logging.info(f"Processing {input_filename} in Refine.py")    
             input_file = os.path.join(settings.INPUT_DIR, input_filename)
             if os.path.splitext(input_file)[1].lower() == '.json':
                 with open(input_file, 'r') as f:
                     input_data = json.load(f)
 
                     # Transform account data
-                    transformer = UserTransformer(self.db_path)
+                    transformer = CheckinTransformer(self.db_path)
                     transformer.process(input_data)
                     logging.info(f"Transformed {input_filename}")
                     

@@ -39,6 +39,7 @@ def extract_input() -> None:
         # Check if file is actually JSON despite the extension
         try:
             with open(input_file, 'r') as f:
+                logging.info(f"Processing {input_filename}")
                 json.load(f)  # Try to parse as JSON
                 if input_filename.lower().endswith('.zip'):
                     # It's a JSON file with wrong extension, rename it
