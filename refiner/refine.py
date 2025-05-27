@@ -7,7 +7,7 @@ from refiner.models.output import Output
 from refiner.transformer.check_in_transformer import CheckInTransformer
 from refiner.config import settings
 from refiner.utils.encrypt import encrypt_file
-from refiner.utils.ipfs import upload_file_to_ipfs, upload_json_to_ipfs
+# from refiner.utils.ipfs import upload_file_to_ipfs, upload_json_to_ipfs  # Comment out IPFS imports
 
 class Refiner:
     def __init__(self):
@@ -39,19 +39,15 @@ class Refiner:
                         dialect=settings.SCHEMA_DIALECT,
                         schema=transformer.get_schema()
                     )
-                    output.schema_data = schema
-                        
-                    # Upload the schema to IPFS
+                    output.schema = schema
+                    
+                    # Save schema locally without uploading
                     schema_file = os.path.join(settings.OUTPUT_DIR, 'schema.json')
                     with open(schema_file, 'w') as f:
                         json.dump(schema.model_dump(), f, indent=4)
-                        schema_ipfs_hash = upload_json_to_ipfs(schema.model_dump())
-                        logging.info(f"Schema uploaded to IPFS with hash: {schema_ipfs_hash}")
                     
-                    # Encrypt and upload the database to IPFS
-                    encrypted_path = encrypt_file(settings.REFINEMENT_ENCRYPTION_KEY, self.db_path)
-                    ipfs_hash = upload_file_to_ipfs(encrypted_path)
-                    output.refinement_url = f"https://ipfs.vana.org/ipfs/{ipfs_hash}"
+                    # Skip IPFS operations
+                    output.refinement_url = "https://blue-yummy-rooster-621.mypinata.cloud/ipfs/bafkreihrxjyot24fw6qnvi4twmcqyocg3ipeimt54gdd7aqrm5c4tacjoq"
                     continue
 
         logging.info("Data transformation completed successfully")

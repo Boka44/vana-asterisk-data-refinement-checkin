@@ -1,11 +1,8 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 class OffChainSchema(BaseModel):
     name: str
     version: str
     description: str
     dialect: str
-    schema_definition: str = Field(alias='schema')
-
-    class Config:
-        populate_by_name = True
+    schema: str
