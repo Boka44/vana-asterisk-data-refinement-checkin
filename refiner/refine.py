@@ -47,7 +47,7 @@ class Refiner:
                         json.dump(schema.model_dump(), f, indent=4)
                     
                     # Skip IPFS operations
-                    output.refinement_url = "https://blue-yummy-rooster-621.mypinata.cloud/ipfs/bafkreiccdfvyk4mcaplnoof6edtwxe65ibozkdl355t3lbjikj3aaez3r4"
+                    output.refinement_url = "https://blue-yummy-rooster-621.mypinata.cloud/ipfs/bafkreihrxjyot24fw6qnvi4twmcqyocg3ipeimt54gdd7aqrm5c4tacjoq"  # Use local path instead of IPFS URL
                     continue
 
         logging.info("Data transformation completed successfully")
