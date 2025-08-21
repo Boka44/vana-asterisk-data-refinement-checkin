@@ -67,6 +67,7 @@ class DataTransformer:
             # Transform data into model instances
             models = self.transform(data)
             for model in models:
+                logging.info(f"Adding model: {model}")
                 session.add(model)
             session.commit()
         except Exception as e:

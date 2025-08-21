@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "description": "Schema for storing daily health check-in data including mood, anxiety, pain, and fatigue levels",
   "dialect": "sqlite",
-  "schema": "CREATE TABLE IF NOT EXISTS \"check_ins\"\n(\n    [id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n    [user_hash] VARCHAR NOT NULL,\n    [timestamp] DATETIME NOT NULL,\n    [mood] VARCHAR,\n    [health_comment] VARCHAR,\n    [doctor_visit] BOOLEAN,\n    [health_profile_update] BOOLEAN,\n    [anxiety_level] VARCHAR,\n    [anxiety_details] VARCHAR,\n    [pain_level] INTEGER,\n    [pain_details] VARCHAR,\n    [fatigue_level] INTEGER,\n    [fatigue_details] VARCHAR\n);"
+  "schema": "CREATE TABLE IF NOT EXISTS \"check_ins\"\n(\n    [id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n    [user_hash] VARCHAR NOT NULL,\n    [timestamp] DATETIME NOT NULL,\n    [checkinId] VARCHAR NOT NULL UNIQUE,\n    [mood] VARCHAR,\n    [health_comment] VARCHAR,\n    [doctor_visit] BOOLEAN,\n    [health_profile_update] BOOLEAN,\n    [anxiety_level] REAL,\n    [anxiety_details] VARCHAR,\n    [pain_level] REAL,\n    [pain_details] VARCHAR,\n    [fatigue_level] REAL,\n    [fatigue_details] VARCHAR\n);"
 }

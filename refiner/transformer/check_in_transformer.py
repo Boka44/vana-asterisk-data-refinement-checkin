@@ -29,6 +29,7 @@ class CheckInTransformer(DataTransformer):
         check_in = CheckInRefined(
             user_hash=unrefined_check_in.user_hash,
             timestamp=unrefined_check_in.timestamp,
+            checkinId=unrefined_check_in.checkinId,
             mood=unrefined_check_in.mood,
             health_comment=unrefined_check_in.health_comment,
             doctor_visit=unrefined_check_in.doctor_visit,
